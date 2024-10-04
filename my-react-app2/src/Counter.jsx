@@ -22,3 +22,5 @@ function Counter() {
 }
 
 export default Counter;
+
+//useState example

@@ -15,3 +15,5 @@ function CreatingButton() {
 }
 
 export default CreatingButton;
+
+// Events example
