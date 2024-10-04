@@ -1,6 +1,6 @@
 import "./App.css";
 import Counter from "./Counter";
-import CreatingButton from "./CreatingButton";
+//import CreatingButton from "./CreatingButton";
 import Friends from "./Friends";
 import Team from "./Team";
 import Users from "./Users";
