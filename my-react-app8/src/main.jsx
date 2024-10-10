@@ -17,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
     children: [
       {
         path: "/about",
@@ -58,10 +59,10 @@ const router = createBrowserRouter([
         element: <PostDetail />,
       },
 
-      {
-        path: "*",
-        element: <Error />,
-      },
+      // {
+      //   path: "*",
+      //   element: <Error />,
+      // },
     ],
   },
 ]);
