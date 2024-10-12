@@ -1,4 +1,7 @@
 import React from "react";
+import { FaLocationDot } from "react-icons/fa6";
+import { MdOutlineAttachMoney } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   const {
@@ -27,8 +30,19 @@ const Job = ({ job }) => {
             {job_type}
           </button>
         </div>
+
+        <div className="mt-4 flex">
+          <h2 className="flex">
+            <FaLocationDot className="text-2xl mr-2" /> {location}
+          </h2>
+          <h2 className="flex">
+            <MdOutlineAttachMoney className="text-2xl" /> {salary}
+          </h2>
+        </div>
         <div className="card-actions">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`/job/${id}`}>
+            <button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
