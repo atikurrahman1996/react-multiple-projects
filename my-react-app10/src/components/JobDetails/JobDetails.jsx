@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { saveJobApplication } from "../Utilities/LocalStorage";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -9,11 +10,6 @@ const JobDetails = () => {
   const idInt = parseInt(id);
   const job = jobs.find((job) => job.id === idInt);
   console.log(job);
-
-  const saveJobApplication = (jobId) => {
-    // Simulate saving job application (replace with your actual logic)
-    console.log(`Job application saved for job ID: ${jobId}`);
-  };
 
   const handleApplyJob = () => {
     saveJobApplication(idInt);
