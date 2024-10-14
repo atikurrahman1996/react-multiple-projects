@@ -40,6 +40,6 @@ function App() {
 
 export default App;
 
-// Using google map
+// Using google map > go to react awesome components > Map > copy the code
 // Using react marker icons so that, we can see location icon in the map
 // To see the real views add original google map api key
