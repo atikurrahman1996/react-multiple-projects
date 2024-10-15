@@ -5,12 +5,12 @@
 2. Create project ( skip google analytics for now)
 3. Register App ( create config)
 4. Install firebase : npm install firebase
-5. Add config file to your project
+5. Add config file to your project ( create a file like - firebase.config.js) 
+6. Copy the code from firebase & paste it here (firebase.config file) & export default app
 
 ...........Integration.......
-6. Go to Docs > Build > Authentication > Web > Get Started
-7. Export app from firebase.init.js file : export default app
-8. Login.jsx : import { getAuth } from "firebase/auth";
+7. Go to Docs > Build > Authentication > Web > Get Started
+8. import { getAuth } from "firebase/auth";
 9. Create const auth = getAuth(app);
 
 .......Provider .........

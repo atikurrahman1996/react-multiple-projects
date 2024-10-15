@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import app from "../../../firebase/firebase.init";
+import app from "../../../firebase/firebase.config";
 
 const Login = () => {
   //if we want to see user info use- useState
@@ -16,6 +16,7 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
+  //Login with google
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -28,6 +29,8 @@ const Login = () => {
       });
   };
 
+  // login with GitHub
+
   const handleGithubSignIn = () => {
     signInWithPopup(auth, githubProvider)
       .then((result) => {
@@ -39,6 +42,8 @@ const Login = () => {
         console.log("error", error.message);
       });
   };
+
+  //Sign out
 
   const handleSignOut = () => {
     signOut(auth)
