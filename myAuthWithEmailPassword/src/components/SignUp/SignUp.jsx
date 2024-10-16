@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import { IoMdEyeOff } from "react-icons/io";
+import { FaEye } from "react-icons/fa";
 
 const SignUp = () => {
   //Using useState for validation purposes to display user if email already exists
 
   const [signUpError, setSignUpError] = useState(""); // by default empty, by default no error!
   const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // by default hide
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -15,10 +18,19 @@ const SignUp = () => {
     const password = e.target.password.value;
     console.log(email, password);
 
-    // client side validation for password
+    // client side validation for password & copy the regx from stack overflow
 
-    if (password.length < 6) {
-      setSignUpError("Password should be at least 6 characters or more");
+    if (password.length < 8) {
+      setSignUpError("Password should be at least 8 characters or more");
+      return;
+    } else if (
+      !/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        password
+      )
+    ) {
+      setSignUpError(
+        "At least one uppercase character, one lowercase character, one digit, and one special character"
+      );
       return;
     }
 
@@ -51,21 +63,28 @@ const SignUp = () => {
             type="email"
             name="email"
             placeholder="email address"
-            id=""
             required
           />
           <br />
-          <input
-            className="mb-4 w-3/4 py-2 px-4"
-            type="password"
-            name="password"
-            placeholder=" password"
-            id=""
-            required
-          />
+          <div className="password-wrapper mb-4 w-3/4 relative">
+            <input
+              className="w-full py-2 px-4"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="password"
+              required
+            />
+            {/* Password show/hide icon */}
+            <span
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEye></FaEye> : <IoMdEyeOff></IoMdEyeOff>}
+            </span>
+          </div>
           <br />
           <input
-            className=" btn btn-primary mb-4 w-3/4 py-2 px-4"
+            className="btn btn-primary mb-4 w-3/4 py-2 px-4"
             type="submit"
             value="Submit"
           />
