@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { IoMdEyeOff } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   //Using useState for validation purposes to display user if email already exists
@@ -108,6 +109,10 @@ const SignUp = () => {
         {signUpError && <p className=" text-2xl text-red-600">{signUpError}</p>}
         {/* To display SignUp successful message */}
         {success && <p className=" text-2xl text-green-600">{success}</p>}
+
+        <p>
+          Already have an account! <Link to="/login"> Please Login!</Link>
+        </p>
       </div>
     </div>
   );

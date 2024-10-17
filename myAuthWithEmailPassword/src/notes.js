@@ -16,6 +16,7 @@
 9. Create const auth = getAuth(app);
 10. export default app;
 11. Go to password authentication > Follow the instructions to create a user & stored in firebase
+12. For reset/forget password: Go to Manage user > Send password reset email > follow instructions
 
 .......Provider .........
 
