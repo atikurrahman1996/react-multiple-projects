@@ -16,7 +16,8 @@ const SignUp = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    const accepted = e.target.terms.checked;
+    console.log(email, password, accepted);
 
     // client side validation for password & copy the regx from stack overflow
 
@@ -31,6 +32,9 @@ const SignUp = () => {
       setSignUpError(
         "At least one uppercase character, one lowercase character, one digit, and one special character"
       );
+      return;
+    } else if (!accepted) {
+      setSignUpError("Please accept our terms & conditions");
       return;
     }
 
@@ -83,6 +87,16 @@ const SignUp = () => {
             </span>
           </div>
           <br />
+
+          {/* To display check box for accept terms and conditions */}
+
+          <div className="mb-2">
+            <input type="checkbox" name="terms" id="terms" />
+            <label className="ml-2" htmlFor="terms">
+              Accept our <a href="">terms and conditions</a>
+            </label>
+          </div>
+
           <input
             className="btn btn-primary mb-4 w-3/4 py-2 px-4"
             type="submit"
