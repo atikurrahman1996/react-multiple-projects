@@ -1,10 +1,11 @@
 import "./App.css";
-import ParentComponent from "./components/ParentWatch";
+import ParentWatch from "./components/ParentWatch";
+
 function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <ParentComponent></ParentComponent>
+      <ParentWatch></ParentWatch>
     </>
   );
 }

@@ -25,6 +25,7 @@ const Blogs = ({ handleAddToBookmark, handleMarkAsRead }) => {
     </div>
   );
 };
+
 Blogs.propTypes = {
   handleAddToBookmark: PropTypes.func,
   handleMarkAsRead: PropTypes.func,

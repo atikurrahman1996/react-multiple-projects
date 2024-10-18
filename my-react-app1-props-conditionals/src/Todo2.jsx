@@ -10,6 +10,7 @@
 
 // using ternary operator
 
+// eslint-disable-next-line react/prop-types
 export default function Todo2({ task, isDone }) {
   return (
     <li>

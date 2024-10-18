@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { IoMdEyeOff } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
@@ -14,11 +19,11 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-
+    const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const accepted = e.target.terms.checked;
-    console.log(email, password, accepted);
+    console.log(name, email, password, accepted);
 
     // client side validation for password & copy the regx from stack overflow
 
@@ -50,6 +55,19 @@ const SignUp = () => {
         const user = userCredential.user;
         console.log(user);
         setSuccess("User Sign Up successfully");
+
+        //Update profile
+
+        updateProfile(user, {
+          displayName: name,
+          photoURL: "https://example.com/jane-q-user/profile.jpg",
+        });
+
+        // Send email verification
+
+        sendEmailVerification(user).then(() => {
+          alert("Please check your email & verify");
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -61,17 +79,24 @@ const SignUp = () => {
       <div className="mx-auto md: w-1/2">
         <h2 className="text-3xl mb-4">Sign Up</h2>
         <br />
-
         <form onSubmit={handleSignUp}>
           <input
-            className="mb-4 w-3/4 py-2 px-4"
+            className="mb-4 w-3/4 py-2 px-4 border border-gray-300 rounded-lg"
+            type="text"
+            name="name"
+            placeholder="your name"
+            required
+          />
+          <br />
+          <input
+            className="mb-4 w-3/4 py-2 px-4 border border-gray-300 rounded-lg"
             type="email"
             name="email"
             placeholder="email address"
             required
           />
           <br />
-          <div className="password-wrapper mb-4 w-3/4 relative">
+          <div className="password-wrapper mb-4 w-3/4 relative border border-gray-300 rounded-lg">
             <input
               className="w-full py-2 px-4"
               type={showPassword ? "text" : "password"}

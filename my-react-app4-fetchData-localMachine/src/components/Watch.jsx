@@ -4,7 +4,7 @@ const Watch = ({ watch }) => {
 
   return (
     <div>
-      <h3>{name}</h3>
+      <h3>Name: {name}</h3>
       <p>Price: ${price}</p>
     </div>
   );
