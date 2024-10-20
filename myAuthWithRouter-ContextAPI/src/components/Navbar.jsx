@@ -33,6 +33,19 @@ const Navbar = () => {
       <li>
         <NavLink to="/orders">Orders</NavLink>
       </li>
+      <br />
+      {/*if user logged in he will see these below two options */}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+          <br />
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 

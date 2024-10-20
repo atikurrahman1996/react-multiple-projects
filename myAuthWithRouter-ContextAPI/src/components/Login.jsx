@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,6 +16,10 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        //after sign-in reset sign in form
+        e.target.reset();
+        //after sign -in go to home page by default
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
