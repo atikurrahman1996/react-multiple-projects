@@ -6,8 +6,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {/*<SignUpSignIn />*/}
-      {/* <h1 className="text-7xl bg-rose-300">Vite + React</h1> */}
+      {/* <SignUpSignIn /> */}
       <PriceOptions />
     </>
   );

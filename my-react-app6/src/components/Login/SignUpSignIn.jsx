@@ -18,18 +18,12 @@ const SignUpSignIn = () => {
 
   // Handle Sign Up form input change
   const handleSignUpChange = (e) => {
-    setSignUpData({
-      ...signUpData,
-      [e.target.name]: e.target.value,
-    });
+    setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
   };
 
   // Handle Sign In form input change
   const handleSignInChange = (e) => {
-    setSignInData({
-      ...signInData,
-      [e.target.name]: e.target.value,
-    });
+    setSignInData({ ...signInData, [e.target.name]: e.target.value });
   };
 
   // Handle Sign Up form submission
