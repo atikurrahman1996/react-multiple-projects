@@ -60,3 +60,4 @@ export default AuthProvider;
 // Provide that context from the component that specifies the data.
 
 // if anything inside AuthProvider (parent component), it would be child components ( children), we can access it as a
+// We use context api so that we can call, when we need
