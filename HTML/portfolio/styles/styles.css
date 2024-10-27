@@ -1,0 +1,58 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: 400, 500, 600, 700, 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100; */
+}
+.text-primary {
+  color: darkorange;
+}
+.btn-primary {
+  border-radius: 10px;
+  background-color: orange;
+  border: 0;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 12px 30px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: blue;
+  font-size: 45px;
+  font-weight: 800;
+}
+
+nav > ul {
+  display: flex;
+  align-items: center;
+  margin: 0, 200px;
+}
+
+nav li {
+  list-style: none;
+  margin-right: 50px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #fff8f3;
+}
+
+.banner {
+  padding: 30px 30px 30px 150px;
+  display: flex;
+}
+
+.banner .profile-pic {
+  width: 400px;
+}
