@@ -1,6 +1,8 @@
 const express = require("express");
 const phones = require("./phones.json");
+const cors = require("cors");
 const app = express();
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send(" Hello world");
@@ -10,7 +12,7 @@ app.get("/phones", (req, res) => {
   res.send(phones);
 });
 
-//get single phones data
+//get single phones data by id
 
 app.get("/phones/:id", (req, res) => {
   const id = parseInt(req.params.id);
