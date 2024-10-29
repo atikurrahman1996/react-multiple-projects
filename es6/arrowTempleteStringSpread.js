@@ -31,6 +31,9 @@ console.log(doMath(50, 90));
 //spread operator
 
 const numbers = [10, 20, 49, 69, 89, 59, 77];
+
+// create new array from old array and add new number
+
 const newNumber = [...numbers, 99];
 console.log(numbers);
 console.log(newNumber);
